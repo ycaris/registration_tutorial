@@ -39,7 +39,7 @@ struct parameters{
     float alpha; int levels=0; bool segment,affine,rigid;
     vector<int> grid_spacing; vector<int> search_radius;
     vector<int> quantisation;
-    string fixed_file,moving_file,output_stem,moving_seg_file,affine_file,deformed_file;
+    string fixed_file,moving_file,output_stem,moving_seg_file,affine_file,deformed_file,jacobian_file;
 };
 
 #include "imageIOgzType.h"
@@ -48,7 +48,7 @@ struct parameters{
 //#include "regularisation.h"
 //#include "MINDSSCbox.h"
 #include "dataCostD.h"
-#include "parseArguments.h"
+#include "parseArguments_linear.h"
 
 
 int main (int argc, char * const argv[]) {
@@ -198,8 +198,5 @@ int main (int argc, char * const argv[]) {
     
     gzWriteNifti(args.deformed_file,warped,header,m,n,o,1);
 
-    
-	
-	
 	return 0;
 }
