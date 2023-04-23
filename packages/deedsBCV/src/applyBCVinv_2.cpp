@@ -170,7 +170,7 @@ int main (int argc, char * const argv[]) {
         matfile.close();
 
         // Invert the matrix using Eigen
-        Matrix4f B = A.inverse();
+        Matrix4f B = A.inverse().transpose();
 
         // Convert the inverted matrix to float* X
         for (int i = 0; i < 4; i++) {
